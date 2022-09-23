@@ -3,7 +3,9 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Michroma&display=swap');
-
+.body{
+    position:relative;
+}
 .herotext {
     font-family: 'Dancing Script', cursive;
     font-family: 'Great Vibes', cursive;
@@ -26,6 +28,32 @@
     /* From https://css.glass */
     /* From https://css.glass */
 
+}
+.registerButton{
+    position: sticky;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+    padding:15px;
+}
+.reg-sec{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.backbutton{
+    position: fixed;
+    top: 2vh;
+    z-index: 1;
+    float: right;
+    margin: 0.5em;
+    width: 3.5em;
+    height: 3.5em;
+    background-color: rgb(255, 16, 179);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .background-nav{
     background: rgba(255, 255, 255, 0.14);
