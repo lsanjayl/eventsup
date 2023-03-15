@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import Eventslist from "./Components/Eventslist/Eventslist"
+import Eventslist from "./Pages/Eventslist/Eventslist"
 import Navbar from "./Components/Navbar/Navbar"
-import Registration from './Components/Registration/Registration';
+import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
+import Registration from './Pages/Registration/Registration';
 function App() {
   return (
-    <div>
-      {/* <Navbar />
-      <Eventslist /> */}
-      <Registration/>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Eventslist />}></Route>
+      <Route path="/register" element={<Registration/>}></Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
