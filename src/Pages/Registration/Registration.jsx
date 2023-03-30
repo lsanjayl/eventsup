@@ -14,20 +14,27 @@ const Registration = () => {
     const [values, setValues] = useState(
         location.state.values
       )
-    const [name,setName]=useState('');
+    const [participant,setParticipant]=useState({
+        name:'',
+        present:false,
+    });
     const [mail,setMail]=useState('');
     const reset = () => {
         setMail('')
-        setName('')
+        setParticipant({
+            name:'',
+            present:false,
+        })
       }
     const handleSubmit=async()=>{
-        if(name&&mail){
+        if(participant.name&&mail){
             // setValu
-            console.log(name+" "+mail);
+            // console.log(name+" "+mail);
             try {
-                values.participants.push(name)
+                values.participants.push(participant)
+                console.log(values)
                 const docRef = await EventDataService.updateEvent(id, values, choice);
-                navigate('/')
+                navigate('/events')
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
@@ -101,7 +108,7 @@ const Registration = () => {
                     <div className="my-4 ">
                         <h1 className="text-xl my-3 text-white">Register now</h1>
                         <div >
-                            <input type="text" placeholder="sec20it068.." className="input input-bordered input-secondary w-full max-w-xs my-1" value={name} onChange={(e) => { setName(e.target.value) }}/>
+                            <input type="text" placeholder="sec20it068.." className="input input-bordered input-secondary w-full max-w-xs my-1" value={participant.name} onChange={(e) => { setParticipant(prev => ({ ...prev, ['name']: e.target.value })) }}/>
                             <input type="text" placeholder="email-id.." className="input input-bordered input-secondary w-full max-w-xs my-1" value={mail} onChange={(e) => { setMail(e.target.value) }}/>
                         </div>
                     </div>

@@ -36,6 +36,7 @@ const Eventslist = () => {
   };
 
     const navigate = useNavigate();
+
     return (
         <div><Navbar/>
         <div className="maindiv">
