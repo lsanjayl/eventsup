@@ -44,6 +44,35 @@ const Registration = () => {
             alert("enter both feilds");
         }
     }
+
+
+    const handleAttendance=()=>{
+        // Define the coordinates of the rectangle corners
+    var topLeftLat = 12.960803798051018;
+    var topLeftLng = 80.05690722810249;
+    var bottomRightLat = 12.960680945835858;
+    var bottomRightLng = 80.05701719866495;
+// Check if a point is inside the rectangle
+    function isInsideRectangle(lat, lng) {
+        return lat >= bottomRightLat && lat <= topLeftLat && lng >= topLeftLng && lng <= bottomRightLng;
+    }
+// Example usage
+
+// var testLat = 12.960845620067879;
+// var testLng = 80.05697562442792;
+
+
+// 12.960737144197122, 80.05696891890582
+
+var testLat = 12.960737144197122;
+var testLng = 80.05696891890582;
+if (isInsideRectangle(testLat, testLng)) {
+  alert("You are inside the premise");
+} else {
+  alert("YOu are outside premise");
+}
+
+    }
     return (
         <div>
             <div className="backbutton"  onClick={()=>navigate("/")}>
@@ -115,8 +144,9 @@ const Registration = () => {
 
                 </div>
             </div>
-            <div className="flex justify-around registerButton bg-base-100 ">
+            <div className="flex justify-around registerButton bg-base-100 "style={{flexDirection:"column",gap:"1em"}}>
                 <button className="btn btn-active btn-secondary btn-block" onClick={handleSubmit}>Register</button>
+                <button className="btn btn-active btn-secondary btn-block" onClick={handleAttendance}>Mark attendance</button>
             </div>
         </div>
     )
